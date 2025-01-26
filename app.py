@@ -29,20 +29,25 @@ if Userquery:
 
     # Create prompt for translation
     prompt = f"""
-    You have to work as a translator. Your task is to convert the given user query into five languages:
+    Act as a professional translator. Convert the user-provided query into **100+ languages** based on ISO 639-1 language codes or specified regions.  
 
-    1. **Urdu**  
-    2. **French**  
-    3. **German**  
-    4. **Chinese**  
-    5. **Japanese**  
+**Rules:**  
+1. Prioritize **business-relevant languages** (e.g., for global supply chains: Mandarin, Spanish, Arabic, etc.).  
+2. Format translations in a **Markdown table** with columns: **Language**, **Code**, **Translation**.  
+3. For underrepresented languages (e.g., Swahili, Bengali), note dialect preferences if unspecified.  
+4. Preserve the original tone (formal/technical/casual).  
 
-    **User Query:** {Userquery}
+**User Query:**  
+"{Userquery}"  
 
-    You should provide the response in Markdown format only.
-
-    Do NOT include the following statement in your response:  
-    **"Okay, I will translate 'how are you' into the five languages you requested. Here are the translations in Markdown format."**
+**Example Output Template:**  
+```markdown  
+| Language (Code)       | Translation                   |  
+|-----------------------|-------------------------------|  
+| Urdu (ur)             | [اردو میں ترجمہ]              |  
+| French (fr)           | [Traduction en français]      |  
+| German (de)           | [Deutsche Übersetzung]        |  
+| ...                   | ...                           |  
     """
 
     # Invoke the model to get the response
